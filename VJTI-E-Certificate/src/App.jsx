@@ -1,14 +1,15 @@
-import './App.css'
-import Cards from './components/Cards'
-import Home from './components/Home'
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Banner } from "./components/Home";
+import { NavBar } from "./components/NavBar";
 
 function App() {
- 
   return (
-    <>
-      <Cards/>
-    </>
-  )
+    <div className="App">
+      <NavBar />
+      <Banner />
+    </div>
+  );
 }
 
-export default App
+export default App;
