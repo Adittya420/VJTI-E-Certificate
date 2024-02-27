@@ -1,52 +1,22 @@
-import React from 'react'
-import '../css/Cards.css'
-function Cards() {
+import React from "react";
+import "../css/Cards.css";
+import { Link } from "react-router-dom";
+function Cards(props) {
   return (
-    <div>
-      <div class="main">
-  <div class="card">
-    <div class="i1">
-      <span class="corner-text">A</span>
-      <svg viewBox="0 0 122.88 107.39">
-        <defs></defs>
-        <title>red-heart</title>
-        <path
-          d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"
-          class="heart-icon"
-        ></path>
+    <div class="card">
+    <p class="card-title"></p>
+    <p class="card-des">
+      <img src={props.img} alt="" srcset="" />
+      <h3>{props.name}</h3>
+    </p>
+    <p class="card-text">
+      <Link style={{color:"white"}} to="/form">View More</Link>
+      <svg class="arrow-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
       </svg>
-    </div>
-
-    <div class="center-shape">
-      <svg viewBox="0 0 122.88 107.39">
-        <defs></defs>
-        <title>red-heart</title>
-        <path
-          d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"
-          class="heart-icon"
-        ></path>
-      </svg>
-    </div>
-
-    <div class="i2">
-      <span class="corner-text">A</span>
-      <svg viewBox="0 0 122.88 107.39">
-        <defs></defs>
-        <title>red-heart</title>
-        <path
-          d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"
-          class="heart-icon"
-        ></path>
-      </svg>
-    </div>
+    </p>
   </div>
-
-  <div class="bg-card-1"></div>
-
-  <div class="bg-card-2"></div>
-</div>
-    </div>
-  )
+  );
 }
 
-export default Cards
+export default Cards;
