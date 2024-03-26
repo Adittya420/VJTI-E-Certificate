@@ -1,4 +1,5 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { Cards } from "./Cards";
 import projImg1 from "../Images/enthu.png";
 import projImg2 from "../Images/Rangwardhan.png";
@@ -93,7 +94,7 @@ export const Projects = () => {
                                 {...project}
                                 onClick={() => {
                                   // Handle click action here, such as opening a modal or navigating to a new page
-                                  console.log(`Clicked on ${project.title}`);
+                                  Navigate();
                                 }}
                               />
                             );

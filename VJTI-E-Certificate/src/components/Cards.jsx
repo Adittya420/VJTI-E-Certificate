@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Cards.css";
+import { useHistory } from "react-router-dom";
 
 export const Cards = ({ title, description, imgUrl, onClick }) => {
+  const history = useHistory();
+
+  const Navigate = () => {
+    history.push("/Form"); // Replace '/form' with the actual path to your Form component
+  };
+
   return (
     <div className="card" onClick={onClick} style={{ paddingLeft: "30px" }}>
       <div className="card-title" style={{ paddingLeft: "15px" }}>
