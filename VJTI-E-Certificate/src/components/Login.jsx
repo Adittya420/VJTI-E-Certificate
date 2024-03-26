@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import '../css/Login.css'
 function Login() {
@@ -10,10 +11,10 @@ function Login() {
         <div id="welcome-line-1"><b>VJTI E-Certificate</b></div>
       </div>
       <div id="input-area">
-        <div class="form-inp">
+        <div className="form-inp">
           <input placeholder="Email Address" type="text"/>
         </div>
-        <div class="form-inp">
+        <div className="form-inp">
           <input placeholder="Password" type="password"/>
         </div>
       </div>
