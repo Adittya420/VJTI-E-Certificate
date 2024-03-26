@@ -9,7 +9,6 @@ function Login() {
     <div id="form-body">
       <div id="welcome-lines">
         <div id="welcome-line-1"><b>VJTI E-Certificate</b></div>
-        <div id="welcome-line-2">Welcome Back, Loyd</div>
       </div>
       <div id="input-area">
         <div className="form-inp">

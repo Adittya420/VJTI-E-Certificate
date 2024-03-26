@@ -1,13 +1,13 @@
 import React from 'react'
 import '../css/Register.css'
-function Form() {
+function Register() {
   return (
    
   <div id="form-ui">
   <form action="" method="post" id="form">
     <div id="form-body">
       <div id="welcome-lines">
-        <div id="welcome-line-1"><b>Rangwardhan</b></div>
+        <div id="welcome-line-1"><b>VJTI E-Certificate</b></div>
       </div>
       <div id="input-area">
         <div class="form-inp">
@@ -17,11 +17,14 @@ function Form() {
           <input placeholder="Registration ID" type="text"/>
         </div>
         <div class="form-inp">
-          <input placeholder="Year" type="text"/>
+          <input placeholder="Email Address" type="text"/>
+        </div>
+        <div class="form-inp">
+          <input placeholder="Create Password" type="password"/>
         </div>
       </div>
       <div id="submit-button-cvr">
-        <button id="submit-button" type="submit">Get Certificate</button>
+        <button id="submit-button" type="submit">Register</button>
       </div>
       
       <div id="bar"></div>
@@ -32,4 +35,4 @@ function Form() {
   )
 }
 
-export default Form
+export default Register
