@@ -11,13 +11,13 @@ function Form() {
             </div>
           </div>
           <div id="input-area">
-            <div class="form-inp">
+            <div className="form-inp">
               <input placeholder="Name" type="text" />
             </div>
-            <div class="form-inp">
+            <div className="form-inp">
               <input placeholder="Registration ID" type="text" />
             </div>
-            <div class="form-inp">
+            <div className="form-inp">
               <input placeholder="Year" type="text" />
             </div>
           </div>

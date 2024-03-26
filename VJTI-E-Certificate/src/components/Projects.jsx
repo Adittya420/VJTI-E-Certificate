@@ -1,5 +1,5 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { Link, useHistory } from "react-router-dom";
 import { Cards } from "./Cards";
 import projImg1 from "../Images/enthu.png";
 import projImg2 from "../Images/Rangwardhan.png";
@@ -9,10 +9,17 @@ import projImg5 from "../Images/pratibimb.png";
 import projImg6 from "../Images/dla.png";
 import projImg7 from "../Images/techno.png";
 import colorSharp2 from "../Images/concert.jpg";
+import Form from "./Form";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
+import { useNavigate } from "react-router";
 
 export const Projects = () => {
+  const history = useNavigate();
+  // const Navigate = () => {
+  //   history.push("/Form"); // Replace '/Form' with the actual path to your Form component
+  // };
+
   const projects = [
     {
       title: "Enthusia",
@@ -94,7 +101,7 @@ export const Projects = () => {
                                 {...project}
                                 onClick={() => {
                                   // Handle click action here, such as opening a modal or navigating to a new page
-                                  Navigate();
+                                  history("/form");
                                 }}
                               />
                             );
