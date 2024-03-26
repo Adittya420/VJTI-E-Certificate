@@ -1,48 +1,88 @@
-import React from 'react'
-import '../css/Form.css'
-function Form() {
+import React, { useState } from "react";
+
+const YearCalendar = () => {
+  const startYear = 2022;
+  const endYear = 2030;
+  const [selectedYear, setSelectedYear] = useState(startYear);
+
+  const handleYearClick = (year) => {
+    setSelectedYear(year);
+  };
+
+  const handleScroll = (direction) => {
+    const container = document.getElementById("yearContainer");
+    if (container) {
+      const scrollAmount = 100; // Change this value to adjust scroll amount
+      if (direction === "up") {
+        container.scrollTop -= scrollAmount;
+      } else if (direction === "down") {
+        container.scrollTop += scrollAmount;
+      }
+    }
+  };
+
   return (
-    
-    <form className="form">
-      <div className="title-2"><span>Technovanza</span></div>
-       <div className="form-title"><span>Enter your details</span></div>
-      <div className="input-container">
-        <input className="input-mail" type="email" placeholder="Registration ID" />
-        <span> </span>
+    <div
+      id="yearContainer"
+      style={{ height: "300px", overflowY: "hidden", position: "relative" }}
+    >
+      <div
+        style={{
+          height: "100%",
+          overflowY: "scroll",
+          scrollBehavior: "smooth",
+          textAlign: "center",
+        }}
+      >
+        {Array.from(
+          { length: endYear - startYear + 1 },
+          (_, index) => startYear + index
+        ).map((year) => (
+          <div
+            key={year}
+            style={{
+              margin: "4px",
+              padding: "8px",
+              cursor: "pointer",
+              display: "block",
+              opacity: selectedYear === year ? 1 : 0.5,
+            }}
+            onClick={() => handleYearClick(year)}
+          >
+            <span style={{ fontSize: selectedYear === year ? "32px" : "24px" }}>
+              {year}
+            </span>
+          </div>
+        ))}
       </div>
-
-      <section className="bg-stars">
-        <span className="star"></span>
-        <span className="star"></span>
-        <span className="star"></span>
-        <span className="star"></span>
-      </section>
-
-      <div className="input-container">
-        <input className="input-pwd" type="password" placeholder="Enter Year" />
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
+          cursor: "pointer",
+          fontSize: "24px",
+        }}
+        onClick={() => handleScroll("up")}
+      >
+        &#9650;
       </div>
-      <section className="bg-stars">
-        <span className="star"></span>
-        <span className="star"></span>
-        <span className="star"></span>
-        <span className="star"></span>
-      </section>
-      <div className="input-container">
-        <input className="input-mail" type="email" placeholder="Enter Name" />
-        <span> </span>
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
+          cursor: "pointer",
+          fontSize: "24px",
+        }}
+        onClick={() => handleScroll("down")}
+      >
+        &#9660;
       </div>
-      <button type="submit" className="submit">
-        <span className="sign-text">Get your Certificate </span>
-      </button>
+    </div>
+  );
+};
 
-      {/* <p className="signup-link">
-        No account?
-        <a href="" className="up">Sign up!</a>
-      </p> */}
-       
-   </form>
-
-  )
-}
-
-export default Form
+export default YearCalendar;

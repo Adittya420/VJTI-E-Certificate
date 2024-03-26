@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Cards.css";
 
-export const Cards = ({ title, description, imgUrl }) => {
+export const Cards = ({ title, description, imgUrl, onClick }) => {
   return (
-    <div className="card" style={{ paddingLeft: "30px" }}>
+    <div className="card" onClick={onClick} style={{ paddingLeft: "30px" }}>
       <div className="card-title" style={{ paddingLeft: "15px" }}>
         <h3>{title}</h3>
       </div>
