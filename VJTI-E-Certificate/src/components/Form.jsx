@@ -1,46 +1,33 @@
 import React from 'react'
-import '../css/Form.css'
+import '../css/Register.css'
 function Form() {
   return (
-    
-    <form className="form">
-      <div className="title-2"><span>Technovanza</span></div>
-       <div className="form-title"><span>Enter your details</span></div>
-      <div className="input-container">
-        <input className="input-mail" type="email" placeholder="Registration ID" />
-        <span> </span>
+   
+  <div id="form-ui">
+  <form action="" method="post" id="form">
+    <div id="form-body">
+      <div id="welcome-lines">
+        <div id="welcome-line-1"><b>Rangwardhan</b></div>
       </div>
-
-      <section className="bg-stars">
-        <span className="star"></span>
-        <span className="star"></span>
-        <span className="star"></span>
-        <span className="star"></span>
-      </section>
-
-      <div className="input-container">
-        <input className="input-pwd" type="password" placeholder="Enter Year" />
+      <div id="input-area">
+        <div class="form-inp">
+          <input placeholder="Name" type="text"/>
+        </div>
+        <div class="form-inp">
+          <input placeholder="Registration ID" type="text"/>
+        </div>
+        <div class="form-inp">
+          <input placeholder="Year" type="text"/>
+        </div>
       </div>
-      <section className="bg-stars">
-        <span className="star"></span>
-        <span className="star"></span>
-        <span className="star"></span>
-        <span className="star"></span>
-      </section>
-      <div className="input-container">
-        <input className="input-mail" type="email" placeholder="Enter Name" />
-        <span> </span>
+      <div id="submit-button-cvr">
+        <button id="submit-button" type="submit">Get Certificate</button>
       </div>
-      <button type="submit" className="submit">
-        <span className="sign-text">Get your Certificate </span>
-      </button>
-
-      {/* <p className="signup-link">
-        No account?
-        <a href="" className="up">Sign up!</a>
-      </p> */}
-       
-   </form>
+      
+      <div id="bar"></div>
+    </div>
+  </form>
+  </div>
 
   )
 }
