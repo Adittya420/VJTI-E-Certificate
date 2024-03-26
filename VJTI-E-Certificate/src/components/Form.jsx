@@ -1,13 +1,18 @@
 import React from "react";
 import "../css/Register.css";
+import { useLocation } from "react-router-dom";
+
 function Form() {
+  const location = useLocation();
+  const { title } = location.state;
+
   return (
     <div id="form-ui">
       <form action="" method="post" id="form">
         <div id="form-body">
           <div id="welcome-lines">
             <div id="welcome-line-1">
-              <b>Rangwardhan</b>
+              <b>{title}</b>
             </div>
           </div>
           <div id="input-area">
@@ -26,7 +31,6 @@ function Form() {
               Get Certificate
             </button>
           </div>
-
           <div id="bar"></div>
         </div>
       </form>
