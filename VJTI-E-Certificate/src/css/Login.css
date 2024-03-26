@@ -1,23 +1,24 @@
 #form {
-    display: grid;
-    place-items: center;
-    width: 500px;
-    height: 472px;
-    padding: 25px;
-    background-color: #161616;
-    box-shadow: 0px 15px 60px #00FF7F;
-    outline: 1px solid #2b9962;
-    border-radius: 10px;
-  }
-  
-  #form-body {
-    position: absolute;
-    top: 50%;
-    right: 25px;
-    left: 25px;
-    width: 230px;
-    margin: -156px auto 0 auto;
-  }
+  position: relative; /* Change from display: grid to position: relative */
+  width: 500px;
+  height: 472px;
+  padding: 25px;
+  background-color: #161616;
+  box-shadow: 0px 15px 60px #bd45cd;
+  outline: 1px solid #bd45cd;
+  border-radius: 10px;
+  margin: 0 auto; /* Center the form horizontally */
+  margin-top: 160px;
+}
+
+#form-body {
+  padding: -100px;
+  width: 230px;
+  margin: 0 auto; /* Center the form body horizontally */
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
   
   #welcome-lines {
     text-align: center;
@@ -25,7 +26,7 @@
   }
   
   #welcome-line-1 {
-    color: #00FF7F;
+    color: #bd45cd;
     font-weight: 600;
     font-size: 28px;
   }
@@ -43,13 +44,13 @@
   .form-inp {
     padding: 11px 25px;
     background: transparent;
-    border: 1px solid #e3e3e3;
+    outline: 1px solid #ae4eba;    
     line-height: 1;
     border-radius: 8px;
   }
   
   .form-inp:focus {
-    border: 1px solid #00FF7F;
+    border: 1px solid #610b6c;
   }
   
   .form-inp:first-child {
@@ -59,8 +60,8 @@
   .form-inp input {
     width: 100%;
     background: none;
-    font-size: 13.4px;
-    color: #00FF7F;
+    font-size: 17.4px;
+    color: #d5c3d7;
     border: none;
     padding: 0;
     margin: 0;
@@ -77,14 +78,14 @@
   #submit-button {
     display: block;
     width: 100%;
-    color: #00FF7F;
+    color: #d96fe8;
     background-color: transparent;
     font-weight: 600;
     font-size: 14px;
     margin: 0;
     padding: 14px 13px 12px 13px;
     border: 0;
-    outline: 1px solid #00FF7F;
+    outline: 1px solid #ae4eba;
     border-radius: 8px;
     line-height: 1;
     cursor: pointer;
@@ -93,8 +94,10 @@
   
   #submit-button:hover {
     transition: all ease-in-out .3s;
-    background-color: #00FF7F;
-    color: #161616;
+    background-color: #610b6c;
+    outline: 1px solid #ede7ee;
+
+    color: #f9f4f4;
     cursor: pointer;
   }
   
@@ -104,38 +107,23 @@
   }
   
   #forgot-pass a {
-    color: #868686;
-    font-size: 12px;
+    color: #f9f2f2;
+    font-size: 14px;
     text-decoration: none;
+  }
+  #forgot-pass :hover{
+    color: #ae4eba;
+   
   }
   
   #bar {
     position: absolute;
-    left: 50%;
+    left: 60%;
     bottom: -50px;
     width: 28px;
     height: 8px;
-    margin-left: -33px;
-    background-color: #00FF7F;
+    margin-left: -40px;
+    background-color: #ae4eba;
     border-radius: 10px;
   }
   
-  #bar:before,
-  #bar:after {
-    content: "";
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background-color: #ececec;
-    border-radius: 50%;
-  }
-  
-  #bar:before {
-    right: -20px;
-  }
-  
-  #bar:after {
-    right: -38px;
-  }
-  
-      

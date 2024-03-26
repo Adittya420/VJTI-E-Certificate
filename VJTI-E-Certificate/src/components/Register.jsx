@@ -1,6 +1,6 @@
 import React from 'react'
-import '../css/Login.css'
-function Login() {
+import '../css/Register.css'
+function Register() {
   return (
    
   <div id="form-ui">
@@ -11,25 +11,28 @@ function Login() {
       </div>
       <div id="input-area">
         <div class="form-inp">
+          <input placeholder="Name" type="text"/>
+        </div>
+        <div class="form-inp">
+          <input placeholder="Registration ID" type="text"/>
+        </div>
+        <div class="form-inp">
           <input placeholder="Email Address" type="text"/>
         </div>
         <div class="form-inp">
-          <input placeholder="Password" type="password"/>
+          <input placeholder="Create Password" type="password"/>
         </div>
       </div>
       <div id="submit-button-cvr">
-        <button id="submit-button" type="submit">Login</button>
+        <button id="submit-button" type="submit">Register</button>
       </div>
-      <div id="forgot-pass">
-        <a href="#">Forgot password?</a>
-      </div>
+      
       <div id="bar"></div>
     </div>
   </form>
   </div>
 
-
   )
 }
 
-export default Login
+export default Register

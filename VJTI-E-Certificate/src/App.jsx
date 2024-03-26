@@ -6,8 +6,7 @@ import { NavBar } from "./components/NavBar";
 import Login from "./components/Login";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
-import YearCalendar from "./components/Form";
-
+import Register from "./components/Register";
 function App() {
   return (
     <>
@@ -15,8 +14,9 @@ function App() {
       <Banner />
       {/* <Skills /> */}
       <Projects />
-      {/* <YearCalendar /> */}
-      {/* <Login /> */}
+      {/* <Form/> */}
+      {/* <Login/> */}
+      {/* <Register/> */}
     </>
   );
 }
