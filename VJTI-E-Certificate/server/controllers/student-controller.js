@@ -1,17 +1,13 @@
 import express from 'express';
-// import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import User from './models/User.js';
-import CommitteeCard from './models/committeeCard.js'; 
-import Certificate from './models/certificate.js';
+import User from '../model/userSchema.js';
+import CommitteeCard from '../model/committeeCards.js'; 
+import Certificate from '../model/certificateSchema.js';
 
-// Initialize Express app
-const app = express();
-const PORT = 3000;
-app.use(bodyParser.json());
+
+const userRouter = express();
 
 // API endpoint for fetching committee cards
-app.get('/committee-cards', async (req, res) => {
+userRouter.get('/get-committee-cards', async (req, res) => {
   try {
     // Fetch all committee cards from the database
     const cards = await CommitteeCard.find();
@@ -22,8 +18,27 @@ app.get('/committee-cards', async (req, res) => {
   }
 });
 
+// API endpoint for adding committee cards to database
+userRouter.post('/add-committee-card', async (req,res) => {
+  try {
+    // Create a new card and save it to the database
+    const{title,image,description}=req.body;
+    const card = new CommitteeCard({
+      title,
+      image,
+      description
+    });
+    await card.save();
+    
+    res.sendStatus(201);  // Send 201 status code on successful creation of resource
+  } catch (error) {
+    console.log('Error in POST /add-card', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 // API Registration endpoint
-app.post('/register', async (req, res) => {
+userRouter.post('/register', async (req, res) => {
     try {
       // Check if user already exists with the provided email
       const existingUser = await User.findOne({ email: req.body.email });
@@ -49,7 +64,7 @@ app.post('/register', async (req, res) => {
 });
 
 // Fetch certificates endpoint
-app.get('/certificates/:committeeName/:studentId', async (req, res) => {
+userRouter.get('/certificates/:committeeName/:studentId', async (req, res) => {
     const { committeeName, studentId } = req.params;
     try {
       // Fetch certificates for the given committee and student ID from the database
@@ -61,8 +76,4 @@ app.get('/certificates/:committeeName/:studentId', async (req, res) => {
     }
 });
 
-
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+export default userRouter; // Export the router

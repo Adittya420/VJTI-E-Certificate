@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import Register from "./components/Register";
+import Form  from "./components/AddCommittee";
 function App() {
   return (
     <>
@@ -14,7 +15,7 @@ function App() {
       <Banner />
       {/* <Skills /> */}
       <Projects />
-      {/* <Form/> */}
+      <Form/>
       {/* <Login/> */}
       {/* <Register/> */}
     </>
