@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import express from "express";
+import userRouter from "./controllers/student-controller.js";
 // import path from "path";
 // import { fileURLToPath } from 'url';
 // import { dirname } from 'path';
@@ -47,6 +48,10 @@ mongoose
 
 //   res.render('Main.jsx', { reactHtml });
 // });
+
+//Middlewares
+app.use(express.json());
+app.use(userRouter)
 
 // creating an api
 app.listen(port, "0.0.0.0", () => {
