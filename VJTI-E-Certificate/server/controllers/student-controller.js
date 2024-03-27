@@ -37,6 +37,22 @@ userRouter.post('/add-committee-card', async (req,res) => {
   }
 });
 
+// Define API endpoint for removing a committee
+userRouter.delete('/committees/:committeeTitle', async (req, res) => {
+  const committeeTitle = req.params.committeeTitle;
+  try {
+    // Find the committee by its title and remove it from the database
+    const removedCommittee = await CommitteeCard.findOneAndRemove({ title: committeeTitle });
+    if (!removedCommittee) {
+      return res.status(404).json({ message: 'Committee not found' });
+    }
+    res.json({ message: 'Committee removed successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 // API Registration endpoint
 userRouter.post('/register', async (req, res) => {
     try {
