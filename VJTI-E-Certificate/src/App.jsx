@@ -3,37 +3,37 @@ import { Banner } from "./components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
-import Login from "./components/Login";
+import Authentication from "./components/Login";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import Register from "./components/Register";
-import Form  from "./components/AddCommittee";
+import Form from "./components/Form";
+import AddCommittee from "./components/AddCommittee";
+import { USER } from "./components/Global";
 
 function App() {
   return (
     <>
-      <NavBar />
-
       <Router>
+        {USER === "user" && <NavBar />}
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Banner />
+                {USER === "user" && <Banner />}
                 <Projects />
               </>
             }
           />
-          <Route path="/form" element={<Form />} />
-          {/* Add a route for the Form component */}
-          {/* <Route path="/login" element={<Login />} /> */}
-          {/* <Route path="/register" element={<Register />} /> */}
-        </Routes>
-        {/* <Banner /> */}
-        {/* <Projects /> */}
-      </Router>
 
+          <Route exact path="/form" element={<Form />} />
+          <Route exact path="/addCertificate" element={<Form />} />
+          {/* Add a route for the Form component */}
+
+          <Route exact path="/login" element={<Authentication />} />
+        </Routes>
+      </Router>
     </>
   );
 }
