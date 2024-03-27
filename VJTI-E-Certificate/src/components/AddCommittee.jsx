@@ -1,9 +1,9 @@
 import React from "react";
 import "../css/Register.css";
-function Form() {
+function AddCommittee() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     console.log(name, description, image);
     fetch("http://localhost:3000/add-committee-card", {
       method: "POST",
@@ -22,9 +22,9 @@ function Form() {
       });
   };
 
-  const [name,setName]=React.useState("");
-  const [image,setImage]=React.useState("");
-  const [description,setDescription]=React.useState("");
+  const [name, setName] = React.useState("");
+  const [image, setImage] = React.useState("");
+  const [description, setDescription] = React.useState("");
   return (
     <div id="form-ui">
       <form action="" method="post" id="form">
@@ -36,13 +36,34 @@ function Form() {
           </div>
           <div id="input-area">
             <div class="form-inp">
-              <input placeholder="Title" type="text" value={name} onChange={(e)=>{setName(e.target.value)}}/>
+              <input
+                placeholder="Title"
+                type="text"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
             </div>
             <div class="form-inp">
-              <input placeholder="Description" type="text" value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
+              <input
+                placeholder="Description"
+                type="text"
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              />
             </div>
             <div class="form-inp">
-              <input placeholder="Image" type="text" value={image} onChange={(e)=>{setImage(e.target.value)}}/>
+              <input
+                placeholder="Image"
+                type="text"
+                value={image}
+                onChange={(e) => {
+                  setImage(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div id="submit-button-cvr">
@@ -58,4 +79,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default AddCommittee;

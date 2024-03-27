@@ -1,104 +1,104 @@
 #form {
-    position: relative;
-    width: 550px;
-    height: 540px; /* Increased height to accommodate four input fields */
-    padding: 25px;
-    background-color: #161616;
-    box-shadow: 0px 15px 60px #bd45cd;
-    outline: 1px solid #bd45cd;
-    border-radius: 10px;
-    margin: 0 auto;
-    margin-top: 120px;
+  position: relative;
+  width: 550px;
+  height: 540px; /* Increased height to accommodate four input fields */
+  padding: 25px;
+  background-color: #161616;
+  box-shadow: 0px 15px 60px #bd45cd;
+  outline: 1px solid #bd45cd;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 120px;
 }
 
 #form-body {
-    width: 340px;
-    margin: 0 auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+  width: 340px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #welcome-lines {
-    text-align: center;
-    line-height: 1;
+  text-align: center;
+  line-height: 1;
 }
 
 #welcome-line-1 {
-    color: #bd45cd;
-    font-weight: 600;
-    font-size: 28px;
+  color: #bd45cd;
+  font-weight: 600;
+  font-size: 28px;
 }
 
 #welcome-line-2 {
-    color: #ffffff;
-    font-size: 18px;
-    margin-top: 17px;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 17px;
 }
 
 #input-area {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .form-inp {
-    padding: 11px 25px;
-    background: transparent;
-    outline: 1px solid #ae4eba;
-    line-height: 1;
-    border-radius: 8px;
-    margin-bottom: 15px; /* Adjusted to create spacing between input fields */
+  padding: 11px 25px;
+  background: transparent;
+  outline: 1px solid #ae4eba;
+  line-height: 1;
+  border-radius: 8px;
+  margin-bottom: 15px; /* Adjusted to create spacing between input fields */
 }
 
 .form-inp input {
-    width: 100%;
-    background: none;
-    font-size: 17.4px;
-    color: #d5c3d7;
-    border: none;
-    padding: 0;
-    margin: 0;
+  width: 100%;
+  background: none;
+  font-size: 17.4px;
+  color: #d5c3d7;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .form-inp input:focus {
-    outline: none;
+  outline: none;
 }
 
 #submit-button-cvr {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #submit-button {
-    display: block;
-    width: 100%;
-    color: #d96fe8;
-    background-color: transparent;
-    font-weight: 600;
-    font-size: 14px;
-    margin: 0;
-    padding: 14px 13px 12px 13px;
-    border: 0;
-    outline: 1px solid #ae4eba;
-    border-radius: 8px;
-    line-height: 1;
-    cursor: pointer;
-    transition: all ease-in-out .3s;
+  display: block;
+  width: 100%;
+  color: #d96fe8;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+  padding: 14px 13px 12px 13px;
+  border: 0;
+  outline: 1px solid #ae4eba;
+  border-radius: 8px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
 }
 
 #submit-button:hover {
-    background-color: #610b6c;
-    outline: 1px solid #ede7ee;
-    color: #f9f4f4;
-    cursor: pointer;
-    transition: all ease-in-out .3s;
+  background-color: #610b6c;
+  outline: 1px solid #ede7ee;
+  color: #f9f4f4;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
 }
 
 #bar {
-    position: absolute;
-    left: 60%;
-    bottom: -50px;
-    width: 28px;
-    height: 8px;
-    margin-left: -40px;
-    background-color: #ae4eba;
-    border-radius: 10px;
+  position: absolute;
+  left: 60%;
+  bottom: -50px;
+  width: 28px;
+  height: 8px;
+  margin-left: -40px;
+  background-color: #ae4eba;
+  border-radius: 10px;
 }
