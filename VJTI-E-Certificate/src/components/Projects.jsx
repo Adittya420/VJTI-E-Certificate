@@ -13,6 +13,7 @@ import Form from "./Form";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { useNavigate } from "react-router";
+import { USER } from "./Global";
 
 export const Projects = () => {
   const history = useNavigate();
@@ -122,6 +123,13 @@ export const Projects = () => {
                                 {...project}
                                 onClick={() => {
                                   // Handle click action here, such as opening a modal or navigating to a new page
+
+                                  if (USER === "admin") {
+                                    history("/addCertificate", {
+                                      state: { title: project.title },
+                                    });
+                                  }
+
                                   history("/form", {
                                     state: { title: project.title },
                                   });
