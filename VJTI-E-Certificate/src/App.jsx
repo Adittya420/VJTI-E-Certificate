@@ -8,16 +8,32 @@ import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import Register from "./components/Register";
 import Form  from "./components/AddCommittee";
+
 function App() {
   return (
     <>
       <NavBar />
-      <Banner />
-      {/* <Skills /> */}
-      <Projects />
-      <Form/>
-      {/* <Login/> */}
-      {/* <Register/> */}
+
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Banner />
+                <Projects />
+              </>
+            }
+          />
+          <Route path="/form" element={<Form />} />
+          {/* Add a route for the Form component */}
+          {/* <Route path="/login" element={<Login />} /> */}
+          {/* <Route path="/register" element={<Register />} /> */}
+        </Routes>
+        {/* <Banner /> */}
+        {/* <Projects /> */}
+      </Router>
+
     </>
   );
 }
