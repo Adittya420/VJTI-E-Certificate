@@ -4,7 +4,7 @@ import "../css/Cards.css";
 
 // import { useHistory } from "react-router-dom";
 
-export const Cards = ({ title, description, imgUrl, onClick }) => {
+export const Cards = ({ title, description, image, onClick }) => {
   // const history = useHistory();
 
   return (
@@ -14,7 +14,7 @@ export const Cards = ({ title, description, imgUrl, onClick }) => {
         <h3>{title}</h3>
       </div>
       <div className="card-des">
-        <img src={imgUrl} alt="" style={{ width: "200px" }} />
+        <img src={image} alt="" style={{ width: "200px" }} />
       </div>
     </div>
     // </Link>
