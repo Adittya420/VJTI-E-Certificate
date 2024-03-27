@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/Register.css";
-function Form() {
+function AddCommittee() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -58,4 +58,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default AddCommittee;
