@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import Form from "./components/Form";
 import AddCommittee from "./components/AddCommittee";
 import { USER } from "./components/Global";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <>
                 {USER === "user" && <Banner />}
                 <Projects />
+                {/* <Footer /> */}
               </>
             }
           />
