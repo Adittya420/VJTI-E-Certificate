@@ -13,21 +13,21 @@ function AddCertificate() {
             </div>
           </div>
           <div id="input-area">
-            <div class="form-inp">
+            <div className="form-inp">
               <input placeholder="Name" type="text" />
             </div>
-            <div class="form-inp">
+            <div className="form-inp">
               <input placeholder="Registration ID" type="text" />
             </div>
-            <div class="form-inp">
+            <div className="form-inp">
               <input placeholder="Year" type="text" />
             </div>
-            <div class="form-inp">
+            <div className="form-inp">
               <input placeholder="Add Certificate Link" type="text" />
             </div>
             <div style={{ textAlign: "center", marginBottom: "10px" }}>OR</div>
-            <div class="form-inp">
-              <label for="excel-upload">Upload Excel Sheet</label>
+            <div className="form-inp">
+              <label htmlFor="excel-upload">Upload Excel Sheet</label>
               <input id="excel-upload" type="file" accept=".xlsx, .xls" />
             </div>
           </div>

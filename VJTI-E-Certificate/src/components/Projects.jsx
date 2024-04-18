@@ -1,5 +1,6 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { Cards } from "./Cards";
+import {Toast} from "./Toast.jsx"
 import React from "react";
 import projImg1 from "../Images/enthu.png";
 import projImg2 from "../Images/Rangwardhan.png";
@@ -13,7 +14,7 @@ import Form from "./Form";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { useNavigate } from "react-router";
-import { USER } from "./Global";
+import { USER, isLoggedIn } from "./Global";
 
 export const Projects = () => {
   const history = useNavigate();
@@ -116,8 +117,9 @@ export const Projects = () => {
                                 {...project}
                                 onClick={() => {
                                   // Handle click action here, such as opening a modal or navigating to a new page
-
-                                  if (USER === "admin") {
+                                  if(isLoggedIn==="false"){}
+                                  else{
+                                  if (USER === "admin" && isLoggedIn==="true") {
                                     history("/addCertificate", {
                                       state: { title: project.title },
                                     });
@@ -125,7 +127,7 @@ export const Projects = () => {
                                     history("/form", {
                                       state: { title: project.title },
                                     });
-                                  }
+                                  }}
                                 }}
                               />
                             );
