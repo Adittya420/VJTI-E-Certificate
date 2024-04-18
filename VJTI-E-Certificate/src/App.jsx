@@ -6,8 +6,8 @@ import { NavBar } from "./components/NavBar";
 import Login from "./components/Login";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
-import Register from "./components/Register";
 import Form  from "./components/AddCommittee";
+import AddCertificate from "./components/AddCertificate";
 
 function App() {
   return (
@@ -25,9 +25,10 @@ function App() {
               </>
             }
           />
-          <Route path="/form" element={<Form />} />
+          {/* <Route path="/form" element={<Form />} /> */}
           {/* Add a route for the Form component */}
           {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/addcertificate" element={<AddCertificate />} />
           {/* <Route path="/register" element={<Register />} /> */}
         </Routes>
         {/* <Banner /> */}

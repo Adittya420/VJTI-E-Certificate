@@ -74,7 +74,17 @@
   #submit-button-cvr {
     margin-top: 20px;
   }
-  
+  .downcss{
+    margin-top: 40px;
+  }
+  .downcss span{
+    color: rgb(236, 128, 128);
+    text-decoration: underline
+  }
+  .downcss span:hover{
+    color: rebeccapurple;
+    text-decoration: underline
+  }
   #submit-button {
     display: block;
     width: 100%;
@@ -100,9 +110,30 @@
     color: #f9f4f4;
     cursor: pointer;
   }
+  #submit-button:hover {
+    transition: all ease-in-out .3s;
+    background-color: #610b6c;
+    outline: 1px solid #ede7ee;
+    color: #f9f4f4;
+    cursor: pointer;
+  }
   
+  #submit-button:hover,
+  #submit-button:focus {
+    background-color: #610b6c;
+    outline: 1px solid #ede7ee;
+    color: #f9f4f4;
+  }
+  
+  #forgot-pass a:hover {
+    color: #ae4eba;
+  }
+  
+  #toggle-form span:hover {
+    cursor: pointer;
+    color: #ae4eba;
+  }
   #forgot-pass {
-    text-align: center;
     margin-top: 10px;
   }
   
@@ -118,12 +149,13 @@
   
   #bar {
     position: absolute;
-    left: 60%;
+    left: 50%;
     bottom: -50px;
     width: 28px;
     height: 8px;
-    margin-left: -40px;
-    background-color: #ae4eba;
+    margin-left: -33px;
+    background-color: #00FF7F;
     border-radius: 10px;
   }
-  
+ 
+      
