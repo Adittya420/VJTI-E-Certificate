@@ -25,7 +25,7 @@ function App() {
               <>
                 {USER === "user" && <Banner />}
                 <Projects />
-                <AddCommittee/>
+                {/* <AddCommittee/> */}
               </>
             }
           />
