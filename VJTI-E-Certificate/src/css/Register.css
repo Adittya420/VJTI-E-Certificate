@@ -12,22 +12,22 @@
 }
 
 #form-body {
-    width: 340px;
-    margin: 0 auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+  width: 340px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #welcome-lines {
-    text-align: center;
-    line-height: 1;
+  text-align: center;
+  line-height: 1;
 }
 
 #welcome-line-1 {
-    color: #bd45cd;
-    font-weight: 600;
-    font-size: 28px;
+  color: #bd45cd;
+  font-weight: 600;
+  font-size: 28px;
 }
 
 #welcome-line-2 {
@@ -37,7 +37,7 @@
 }
 
 #input-area {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .form-inp {
@@ -61,11 +61,11 @@
 }
 
 .form-inp input:focus {
-    outline: none;
+  outline: none;
 }
 
 #submit-button-cvr {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #submit-button,

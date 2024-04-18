@@ -1,5 +1,6 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { Cards } from "./Cards";
+import React from "react";
 import projImg1 from "../Images/enthu.png";
 import projImg2 from "../Images/Rangwardhan.png";
 import projImg3 from "../Images/digital.png";
@@ -12,6 +13,7 @@ import Form from "./Form";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { useNavigate } from "react-router";
+import { USER } from "./Global";
 
 export const Projects = () => {
   const history = useNavigate();
@@ -19,39 +21,60 @@ export const Projects = () => {
   //   history.push("/Form"); // Replace '/Form' with the actual path to your Form component
   // };
 
-  const projects = [
-    {
-      title: "Enthusia",
-      description: "Design & Development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Rangwardhan",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Digital VJTI",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
-    {
-      title: "Pratibimb",
-      description: "Design & Development",
-      imgUrl: projImg5,
-    },
-    {
-      title: "ECell",
-      description: "Design & Development",
-      imgUrl: projImg4,
-    },
+  // fetch comittee data from the database
+  const getCommitteeData = async () => {
+    let response = await fetch("http://localhost:3000/get-committee-cards");
+    return await response.json();
+  };
 
-    {
-      title: "Technovanza",
-      description: "Design & Development",
-      imgUrl: projImg7,
-    },
-  ];
+  const [committee, setData] = React.useState([]);
+
+ 
+
+  React.useEffect(() => {
+    getCommitteeData().then((committee) => {
+      setData(committee);
+    });
+  }, []);
+
+
+
+
+  
+
+  // const committee = [
+  //   {
+  //     title: "Enthusia",
+  //     description: "Design & Development",
+  //     imgUrl: projImg1,
+  //   },
+  //   {
+  //     title: "Rangwardhan",
+  //     description: "Design & Development",
+  //     imgUrl: projImg2,
+  //   },
+  //   {
+  //     title: "Digital VJTI",
+  //     description: "Design & Development",
+  //     imgUrl: projImg3,
+  //   },
+  //   {
+  //     title: "Pratibimb",
+  //     description: "Design & Development",
+  //     imgUrl: projImg5,
+  //   },
+  //   {
+  //     title: "ECell",
+  //     description: "Design & Development",
+  //     imgUrl: projImg4,
+  //   },
+
+  //   {
+  //     title: "Technovanza",
+  //     description: "Design & Development",
+  //     imgUrl: projImg7,
+  //   },
+  // ];
 
   return (
     <section className="project" id="projects">
@@ -93,13 +116,20 @@ export const Projects = () => {
                     >
                       <Tab.Pane eventKey="first">
                         <Row style={{ marginLeft: "95px" }}>
-                          {projects.map((project, index) => {
+                          {committee.map((project, index) => {
                             return (
                               <Cards
                                 key={index}
                                 {...project}
                                 onClick={() => {
                                   // Handle click action here, such as opening a modal or navigating to a new page
+
+                                  if (USER === "admin") {
+                                    history("/addCertificate", {
+                                      state: { title: project.title },
+                                    });
+                                  }
+
                                   history("/form", {
                                     state: { title: project.title },
                                   });

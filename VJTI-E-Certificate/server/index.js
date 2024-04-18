@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import express from "express";
 import userRouter from "./controllers/student-controller.js";
+import cors from 'cors';
 // import path from "path";
 // import { fileURLToPath } from 'url';
 // import { dirname } from 'path';
@@ -50,6 +51,9 @@ mongoose
 // });
 
 //Middlewares
+app.use(cors({
+  origin: 'http://localhost:5173' // Replace with the origin of your client application
+}));
 app.use(express.json());
 app.use(userRouter)
 
