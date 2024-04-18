@@ -29,18 +29,11 @@ export const Projects = () => {
 
   const [committee, setData] = React.useState([]);
 
- 
-
   React.useEffect(() => {
     getCommitteeData().then((committee) => {
       setData(committee);
     });
   }, []);
-
-
-
-
-  
 
   // const committee = [
   //   {
@@ -128,11 +121,11 @@ export const Projects = () => {
                                     history("/addCertificate", {
                                       state: { title: project.title },
                                     });
+                                  } else {
+                                    history("/form", {
+                                      state: { title: project.title },
+                                    });
                                   }
-
-                                  history("/form", {
-                                    state: { title: project.title },
-                                  });
                                 }}
                               />
                             );
