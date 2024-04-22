@@ -5,7 +5,7 @@ import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
 import { Link, useNavigate } from "react-router-dom";
-
+import { USER, isLoggedIn } from "./Global";
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
@@ -82,7 +82,7 @@ export const NavBar = () => {
               </a>
             </div>
             <button className="vvd" onClick={() => navigate("/login")}>
-              <span>Let's Connect</span>
+              <span>{isLoggedIn?"Connected":"Let's Connect"}</span>
             </button>
           </span>
         </Navbar.Collapse>

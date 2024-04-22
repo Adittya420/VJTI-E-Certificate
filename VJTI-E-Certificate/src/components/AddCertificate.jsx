@@ -27,11 +27,13 @@ function AddCertificate() {
             </div>
             <div style={{ textAlign: "center", marginBottom: "10px" }}>OR</div>
             <div className="form-inp">
-              <label htmlFor="excel-upload">Upload Excel Sheet</label>
-              <input id="excel-upload" type="file" accept=".xlsx, .xls" />
+              <label htmlFor="csv-upload">Upload CSV File</label>
+              <input id="csv-upload" type="file" accept=".csv" />
             </div>
           </div>
-          <div style={{fontSize:'13px'}}>Note: Fields in the excel sheet should not be empty</div>
+          <div style={{ fontSize: "13px" }}>
+            Note: Fields in the excel sheet should not be empty
+          </div>
           <div id="submit-button-cvr">
             <button id="submit-button" type="submit">
               Add Certificate
