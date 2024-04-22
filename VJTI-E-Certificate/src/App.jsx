@@ -15,8 +15,9 @@ import Register from "./components/Regsiter";
 
 import Form from "./components/Form";
 import AddCommittee from "./components/AddCommittee";
-import { USER } from "./components/Global";
+import { USER } from "./components/Constants";
 import { Footer } from "./components/Footer";
+import Events from "./components/Events";
 import AddCertificate from "./components/AddCertificate";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 
           <Route exact path="/form" element={<Form />} />
           <Route exact path="/addCertificate" element={<AddCertificate />} />
+          <Route exact path="/Events" element={<Events />} />
           {/* Add a route for the Form component */}
 
           <Route exact path="/login" element={<Authentication />} />
