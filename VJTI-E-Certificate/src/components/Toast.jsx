@@ -1,24 +1,17 @@
-export const Toast=() => {
-    const toast = useToast()
-    const statuses = ['success', 'error', 'warning', 'info']
-  
-    return (
-      <Wrap>
-        {statuses.map((status, i) => (
-          <WrapItem key={i}>
-            <Button
-              onClick={() =>
-                toast({
-                  title: `${status} toast`,
-                  status: status,
-                  isClosable: true,
-                })
-              }
-            >
-              Show {status} toast
-            </Button>
-          </WrapItem>
-        ))}
-      </Wrap>
-    )
-  }
+export const Toast = (props) => {
+  const toast = useToast();
+  const statuses = ["success", "error", "warning", "info"];
+  const selectedStatus = statuses[props.number - 1]; // Assuming props.number starts from 1
+
+  useEffect(() => {
+    if (selectedStatus) {
+      toast({
+        title: `${selectedStatus} toast`,
+        status: selectedStatus,
+        isClosable: true,
+      });
+    }
+  }, [toast, selectedStatus]);
+
+  return null;
+};

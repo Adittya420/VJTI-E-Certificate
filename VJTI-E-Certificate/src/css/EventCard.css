@@ -1,0 +1,12 @@
+.modal-body-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+}
+.card {
+  width: 250px;
+  height: 250px;
+}
