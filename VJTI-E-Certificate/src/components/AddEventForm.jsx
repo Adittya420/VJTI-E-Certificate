@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/Register.css";
 
 const AddEventForm = () => {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [year, setYear] = useState("");
+
+  const handleSubmit = () => {
+    console.log(name, description, year);
+
+    // fetch("http://localhost:3000/add-event-card", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     title: name,
+    //     description: description,
+    //     year: year
+    //   }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //   });
+  };
+
   return (
     <div id="form-ui">
       <form action="" method="post" id="form">
@@ -13,17 +37,32 @@ const AddEventForm = () => {
           </div>
           <div id="input-area">
             <div className="form-inp">
-              <input placeholder="Name" type="text" />
+              <input
+                placeholder="Name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div className="form-inp">
-              <input placeholder="Description" type="text" />
+              <input
+                placeholder="Description"
+                type="text"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
             </div>
             <div className="form-inp">
-              <input placeholder="Year" type="text" />
+              <input
+                placeholder="Year"
+                type="text"
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+              />
             </div>
           </div>
           <div id="submit-button-cvr">
-            <button id="submit-button" type="submit">
+            <button id="submit-button" type="button" onClick={handleSubmit}>
               Submit
             </button>
           </div>
