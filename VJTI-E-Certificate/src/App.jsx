@@ -12,7 +12,10 @@ import Form from "./components/Form";
 import AddCommittee from "./components/AddCommittee";
 import { USER } from "./components/Global";
 import { Footer } from "./components/Footer";
-import  AddCertificate  from "./components/AddCertificate";
+
+import Events from "./components/Events";
+import AddCertificate from "./components/AddCertificate";
+
 
 function App() {
   return (
@@ -25,9 +28,10 @@ function App() {
             element={
               <>
                 {USER === "user" && <Banner />}
-                <Projects />
-                <AddCertificate/>
-                <Projects/>
+
+                {USER === "user" && <Projects />}
+                <Outlet />
+
                 {/* <Footer /> */}
               </>
             }
