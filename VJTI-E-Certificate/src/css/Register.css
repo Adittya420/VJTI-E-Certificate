@@ -1,7 +1,7 @@
 #form {
     position: relative;
     width: 550px;
-    height: 550px; /* Increased height to accommodate four input fields and upload option */
+    height: 590px; /* Increased height to accommodate four input fields and upload option */
     padding: 25px;
     background-color: #161616;
     box-shadow: 0px 15px 60px #bd45cd;

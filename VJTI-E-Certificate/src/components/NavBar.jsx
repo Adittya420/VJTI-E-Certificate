@@ -4,8 +4,9 @@ import logo from "../assets/img/logo.svg";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
-import { Link, useNavigate } from "react-router-dom";
-import { USER, isLoggedIn } from "./Global";
+import { HashLink } from "react-router-hash-link";
+import { useNavigate } from "react-router-dom";
+
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
@@ -19,6 +20,7 @@ export const NavBar = () => {
         setScrolled(false);
       }
     };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -30,7 +32,7 @@ export const NavBar = () => {
   return (
     <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand href="/">
           <img src={logo} alt="Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -39,8 +41,7 @@ export const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link
-              as={Link}
-              to="/"
+              href="#home"
               className={
                 activeLink === "home" ? "active navbar-link" : "navbar-link"
               }
@@ -49,8 +50,7 @@ export const NavBar = () => {
               Home
             </Nav.Link>
             <Nav.Link
-              as={Link}
-              to="/skills"
+              href="#skills"
               className={
                 activeLink === "skills" ? "active navbar-link" : "navbar-link"
               }
@@ -59,8 +59,7 @@ export const NavBar = () => {
               Committees
             </Nav.Link>
             <Nav.Link
-              as={Link}
-              to="/projects"
+              href="#projects"
               className={
                 activeLink === "projects" ? "active navbar-link" : "navbar-link"
               }
@@ -82,7 +81,7 @@ export const NavBar = () => {
               </a>
             </div>
             <button className="vvd" onClick={() => navigate("/login")}>
-              <span>{isLoggedIn?"Connected":"Let's Connect"}</span>
+              <span>Let's Connect</span>
             </button>
           </span>
         </Navbar.Collapse>
