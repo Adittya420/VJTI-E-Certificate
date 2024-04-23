@@ -5,7 +5,7 @@ const certificateSchema = new Schema({
         type: String,
         required: true,
     },
-    id:{
+    reg_id:{
         type: Number,
         required: true,
     },
@@ -15,6 +15,10 @@ const certificateSchema = new Schema({
     },
     year:{
         type: Number,
+        required: true,
+    },
+    certificateLink:{
+        type: String,
         required: true,
     }
 });
