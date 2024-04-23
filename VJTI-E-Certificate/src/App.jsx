@@ -24,14 +24,14 @@ function App() {
   return (
     <>
       <Router>
-        {USER === "user" && <NavBar />}
+        {USER === "admin" && <NavBar />}
         <Routes>
           <Route
             path="/"
             element={
               <>
-                {USER === "user" && <Banner />}
-                {USER === "user" && <Projects />}
+                {USER === "admin" && <Banner />}
+                {USER === "admin" && <Projects />}
                 <Outlet />
                 {/* <Footer /> */}
               </>

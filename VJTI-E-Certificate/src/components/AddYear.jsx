@@ -9,10 +9,9 @@ const SubscriptionForm = () => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <span className="title">Subscribe to our newsletter.</span>
+      <span className="title">Enter Year</span>
       <p className="description">
-        Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit
-        quis. Duis tempor incididunt dolore.
+        Enter the Year of the Event to get Certificate
       </p>
       <div>
         <input
@@ -21,7 +20,7 @@ const SubscriptionForm = () => {
           name="email"
           id="email-address"
         />
-        <button type="submit">Subscribe</button>
+        <button type="button">Submit</button>
       </div>
     </form>
   );

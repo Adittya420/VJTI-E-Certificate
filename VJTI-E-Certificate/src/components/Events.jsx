@@ -12,6 +12,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  background,
 } from "@chakra-ui/react";
 
 const Events = () => {
@@ -20,7 +21,7 @@ const Events = () => {
   const { isOpen, onOpen, onClose } = useDisclosure(); // Chakra UI hooks for managing modal state
 
   // Generate Card components
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 6; i++) {
     cards.push(<Cards key={i} />); // Pass onOpen function to Cards component
   }
 
@@ -49,11 +50,22 @@ const Events = () => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Add Year</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <SubscriptionForm /> {/* Render your AddYear component */}
+        <ModalContent bg="transparent" boxShadow="none" mt="20vh">
+          {/* <ModalHeader>Add Year</ModalHeader> */}
+          {/* <ModalCloseButton /> */}
+          <ModalBody p={0}>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <SubscriptionForm />
+            </div>{" "}
+            {/* Render your AddYear component */}
           </ModalBody>
 
           <ModalFooter>

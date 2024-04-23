@@ -4,34 +4,32 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "../css/EventCard.css";
-
 import AddEventForm from "./AddEventForm";
+import {
+  Modal as ChakraModal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 
 export const EventCard = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const modalSize = useBreakpointValue({ base: "full", md: "lg" });
 
   return (
     <div>
       <div
         className="card"
-        onClick={handleShow}
+        onClick={onOpen}
         style={{ paddingLeft: "30px", cursor: "pointer" }}
       >
         <div className="card-title" style={{ paddingLeft: "15px" }}></div>
         <div className="card-des">
-          <Modal
-            show={show}
-            onHide={handleClose}
-            dialogClassName="custom-modal"
-            centered
-          >
-            <Modal.Header closeButton></Modal.Header>
-            <Modal.Body className="modal-body-container">
-              <AddEventForm />
-            </Modal.Body>
-          </Modal>
           <AddCircleIcon
             style={{
               display: "flex",
@@ -42,6 +40,35 @@ export const EventCard = () => {
           />
         </div>
       </div>
+
+      <ChakraModal
+        isOpen={isOpen}
+        onClose={onClose}
+        size={modalSize}
+        isCentered
+      >
+        <ModalOverlay />
+        <ModalContent
+          bg="transparent"
+          boxShadow="none"
+          maxH="100vh"
+          // overflowY="auto"
+        >
+          <ModalBody p={0}>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <AddEventForm />
+            </div>
+          </ModalBody>
+        </ModalContent>
+      </ChakraModal>
     </div>
   );
 };
