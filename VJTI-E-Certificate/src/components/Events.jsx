@@ -13,9 +13,14 @@ import {
   ModalCloseButton,
   useDisclosure,
   background,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
+import { USER } from "./Constants";
+import AddCertificate from "./AddCertificate";
+
 const Events = () => {
+  const modalSize = useBreakpointValue({ base: "full", md: "lg" });
   const cardsPerRow = 3; // Number of cards per row
   const cards = []; // Array to store Card components
   const { isOpen, onOpen, onClose } = useDisclosure(); // Chakra UI hooks for managing modal state
@@ -47,32 +52,60 @@ const Events = () => {
           </div>
         ))}
       </div>
+      {USER == "admin" && (
+        <Modal isOpen={isOpen} onClose={onClose} size={modalSize} isCentered>
+          <ModalOverlay />
+          <ModalContent
+            bg="transparent"
+            boxShadow="none"
+            maxH="100vh"
+            // overflowY="auto"
+          >
+            <ModalBody p={0}>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <AddCertificate />
+              </div>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      )}
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent bg="transparent" boxShadow="none" mt="20vh">
-          {/* <ModalHeader>Add Year</ModalHeader> */}
-          {/* <ModalCloseButton /> */}
-          <ModalBody p={0}>
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <SubscriptionForm />
-            </div>{" "}
-            {/* Render your AddYear component */}
-          </ModalBody>
+      {USER == "user" && (
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent bg="transparent" boxShadow="none" mt="20vh">
+            {/* <ModalHeader>Add Year</ModalHeader> */}
+            {/* <ModalCloseButton /> */}
+            <ModalBody p={0}>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <SubscriptionForm />
+                {/* {USER == "admin" && <AddCertificate />} */}
+              </div>{" "}
+              {/* Render your AddYear component */}
+            </ModalBody>
 
-          <ModalFooter>
-            {/* Add any additional buttons or actions for the modal */}
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+            <ModalFooter>
+              {/* Add any additional buttons or actions for the modal */}
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      )}
     </div>
   );
 };

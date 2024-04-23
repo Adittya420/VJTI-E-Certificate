@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../css/Register.css";
+import ButtonU from "./ButtonU";
 
 const AddEventForm = () => {
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
   const [year, setYear] = useState("");
 
   const handleSubmit = () => {
@@ -46,19 +47,14 @@ const AddEventForm = () => {
             </div>
             <div className="form-inp">
               <input
-                placeholder="Description"
-                type="text"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
-            <div className="form-inp">
-              <input
                 placeholder="Year"
                 type="text"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
               />
+            </div>
+            <div>
+              <ButtonU />
             </div>
           </div>
           <div id="submit-button-cvr">
