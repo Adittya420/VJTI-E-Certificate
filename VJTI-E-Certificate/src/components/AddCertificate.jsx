@@ -4,6 +4,7 @@ import "../css/Register.css";
 
 // Component for adding a new certificate
 function AddCertificate() {
+
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [year, setYear] = React.useState("");
@@ -76,6 +77,7 @@ function AddCertificate() {
             Note: Fields in the excel sheet should not be empty
           </div>
           <div id="submit-button-cvr">
+
             <button
               id="submit-button"
               type="button"
