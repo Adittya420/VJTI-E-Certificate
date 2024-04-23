@@ -1,5 +1,6 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { Cards } from "./Cards";
+import { Toast } from "./Toast.jsx";
 import React from "react";
 import projImg1 from "../Images/enthu.png";
 import projImg2 from "../Images/Rangwardhan.png";
@@ -13,10 +14,12 @@ import Form from "./Form";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { useNavigate } from "react-router";
-import { USER } from "./Global";
+import { USER, isLoggedIn } from "./Constants.jsx";
+import { useToast } from "@chakra-ui/toast";
 
 export const Projects = () => {
   const history = useNavigate();
+  const toast = useToast();
   // const Navigate = () => {
   //   history.push("/Form"); // Replace '/Form' with the actual path to your Form component
   // };
@@ -29,18 +32,21 @@ export const Projects = () => {
 
   const [committee, setData] = React.useState([]);
 
- 
+  function ShowToast() {
+    return toast({
+      title: "You need to login first",
+      // description: "We will get back to you soon.",
+      status: "info",
+      duration: 5000,
+      isClosable: true,
+    });
+  }
 
   React.useEffect(() => {
     getCommitteeData().then((committee) => {
       setData(committee);
     });
   }, []);
-
-
-
-
-  
 
   // const committee = [
   //   {
@@ -123,16 +129,22 @@ export const Projects = () => {
                                 {...project}
                                 onClick={() => {
                                   // Handle click action here, such as opening a modal or navigating to a new page
-
-                                  if (USER === "admin") {
-                                    history("/addCertificate", {
-                                      state: { title: project.title },
-                                    });
+                                  if (isLoggedIn === "false") {
+                                    ShowToast();
+                                  } else {
+                                    if (
+                                      USER === "admin" &&
+                                      isLoggedIn === "true"
+                                    ) {
+                                      history("/Events", {
+                                        state: { title: project.title },
+                                      });
+                                    } else {
+                                      history("/form", {
+                                        state: { title: project.title },
+                                      });
+                                    }
                                   }
-
-                                  history("/form", {
-                                    state: { title: project.title },
-                                  });
                                 }}
                               />
                             );
