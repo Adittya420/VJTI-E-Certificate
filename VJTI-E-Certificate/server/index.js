@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import express from "express";
 import userRouter from "./controllers/student-controller.js";
+import adminRouter from "./controllers/admin-controller.js";
 import cors from 'cors';
 // import path from "path";
 // import { fileURLToPath } from 'url';
@@ -56,6 +57,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(userRouter)
+app.use(adminRouter);
 
 // creating an api
 app.listen(port, "0.0.0.0", () => {
