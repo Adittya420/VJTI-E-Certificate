@@ -29,10 +29,12 @@ function App() {
               <>
                 {USER === "user" && <Banner />}
 
+
                 {USER === "user" && <Projects />}
                 <Outlet />
 
                 {/* <Footer /> */}
+
               </>
             }
           />

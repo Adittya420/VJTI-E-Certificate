@@ -2,7 +2,11 @@ import express from 'express';
 import User from '../model/userSchema.js';
 import CommitteeCard from '../model/committeeCards.js'; 
 import Certificate from '../model/certificateSchema.js';
-
+import bcryptjs from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import { errorHandler } from '../utils/error.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const userRouter = express();
 
@@ -61,13 +65,16 @@ userRouter.post('/register', async (req, res) => {
       if (existingUser) {
         return res.status(400).json({ message: 'User with this email already exists' });
       }
-  
+      
+      const { name, email, id, password } = req.body;
+      const hashedPassword = bcryptjs.hashSync(password, 10);
+
       // Create a new user instance based on the request body
       const newUser = new User({
-        name: req.body.name,
-        email: req.body.email,
-        id: req.body.id,
-        password: req.body.password,
+        name,
+        email,
+        id,
+        password: hashedPassword
       });
   
       // Save the user to the database
@@ -78,6 +85,30 @@ userRouter.post('/register', async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
 });
+
+// API for login user
+userRouter.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const validUser = await User.findOne({ email });
+    if (!validUser) {
+      return res.status(404).json({ error: 'User not found!' });
+    }
+    const validPassword = bcryptjs.compareSync(password, validUser.password);
+    if (!validPassword) {
+      return res.status(401).json({ error: 'Wrong credentials!' });
+    }
+    const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
+    const { password: pass, ...rest } = validUser._doc;
+    res
+      .cookie('access_token', token, { httpOnly: true })
+      .status(200)
+      .json(rest);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 // Fetch certificates endpoint
 userRouter.get('/certificates/:committeeName/:studentId', async (req, res) => {
