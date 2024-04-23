@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Register.css";
+import "../css/addCertificate.css";
 function AddCommittee() {
   const handleSubmit = (e) => {
     e.preventDefault();
