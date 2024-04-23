@@ -55,6 +55,7 @@ const AddEventForm = () => {
             </div>
             <div>
               <ButtonU />
+              <ButtonU />
             </div>
           </div>
           <div id="submit-button-cvr">

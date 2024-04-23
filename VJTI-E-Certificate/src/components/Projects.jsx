@@ -132,10 +132,7 @@ export const Projects = () => {
                                   if (isLoggedIn === "false") {
                                     ShowToast();
                                   } else {
-                                    if (
-                                      USER === "admin" &&
-                                      isLoggedIn === "true"
-                                    ) {
+                                    if (isLoggedIn === "true") {
                                       history("/Events", {
                                         state: { title: project.title },
                                       });

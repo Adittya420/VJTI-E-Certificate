@@ -39,7 +39,7 @@ const Events = () => {
           gridTemplateColumns: `1fr repeat(${cardsPerRow}, minmax(200px, 1fr))`,
         }}
       >
-        <EventCard className="card" />
+        {USER == "admin" && <EventCard className="card" />}
         {cards.map((card, index) => (
           <div
             onClick={onOpen}

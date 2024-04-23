@@ -4,9 +4,10 @@ import "../css/Register.css";
 
 // Component for adding a new certificate
 function AddCertificate() {
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
+  const [fullName, setFullName] = React.useState("");
+  // const [lastName, setLastName] = React.useState("");
   const [year, setYear] = React.useState("");
+  const [performance, setPerformance] = React.useState("");
 
   const handleAddCertificate = () => {
     const img = new Image();
@@ -22,7 +23,12 @@ function AddCertificate() {
 
       ctx.font = "80px Arial";
       ctx.fillStyle = "black";
-      ctx.fillText(`${firstName} ${lastName}`, 265, 435); // Adjust coordinates as needed
+      ctx.fillText(fullName, 265, 435);
+      // Adjust coordinates as needed
+
+      ctx.font = "30px Verdana"; // Change the font family and size
+      ctx.fillStyle = "black"; // Change the color
+      ctx.fillText(performance, 205, 505);
 
       canvas.toBlob((blob) => {
         saveAs(blob, "certificate.png");
@@ -44,26 +50,34 @@ function AddCertificate() {
           <div id="input-area">
             <div className="form-inp">
               <input
-                placeholder="First Name"
+                placeholder="Full Name"
                 type="text"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
               />
             </div>
-            <div className="form-inp">
+            {/* <div className="form-inp">
               <input
                 placeholder="Last Name"
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
-            </div>
+            </div> */}
             <div className="form-inp">
               <input
                 placeholder="Year"
                 type="text"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
+              />
+            </div>
+            <div className="form-inp">
+              <input
+                placeholder="Performance"
+                type="text"
+                value={performance}
+                onChange={(e) => setPerformance(e.target.value)}
               />
             </div>
             <div style={{ textAlign: "center", marginBottom: "10px" }}>OR</div>
