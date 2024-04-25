@@ -17,7 +17,7 @@ import { useNavigate } from "react-router";
 import { USER, isLoggedIn } from "./Constants.jsx";
 import { useToast } from "@chakra-ui/toast";
 
-export const Projects = () => {
+export const About = () => {
   const history = useNavigate();
   const toast = useToast();
   // const Navigate = () => {
@@ -114,67 +114,57 @@ export const Projects = () => {
                         <Nav.Link eventKey="third">Tab 3</Nav.Link>
                       </Nav.Item>
                     </Nav>
-                    <Tab.Content id="slideInUp">
+                    <Tab.Content
+                      id="slideInUp"
+                      className={
+                        isVisible ? "animate__animated animate__slideInUp" : ""
+                      }
+                    >
                       <Tab.Pane eventKey="first">
-                        <Row style={{ marginLeft: "135px" }}>
-                          {committee.slice(0, 6).map((project, index) => (
-                            <Cards
-                              key={index}
-                              {...project}
-                              onClick={() => {
-                                // Handle click action here, such as opening a modal or navigating to a new page
-                                if (isLoggedIn === "false") {
-                                  ShowToast();
-                                } else {
-                                  if (isLoggedIn === "true") {
-                                    history("/Events", {
-                                      state: { title: project.title },
-                                    });
+                        <Row style={{ marginLeft: "95px" }}>
+                          {committee.map((project, index) => {
+                            return (
+                              <Cards
+                                key={index}
+                                {...project}
+                                onClick={() => {
+                                  // Handle click action here, such as opening a modal or navigating to a new page
+                                  if (isLoggedIn === "false") {
+                                    ShowToast();
                                   } else {
-                                    history("/form", {
-                                      state: { title: project.title },
-                                    });
+                                    if (isLoggedIn === "true") {
+                                      history("/Events", {
+                                        state: { title: project.title },
+                                      });
+                                    } else {
+                                      history("/form", {
+                                        state: { title: project.title },
+                                      });
+                                    }
                                   }
-                                }}}
-                            />
-                          ))}
+                                }}
+                              />
+                            );
+                          })}
                         </Row>
                       </Tab.Pane>
-                      <Tab.Pane eventKey="second">
-                        <Row style={{ marginLeft: "135px" }}>
-                          {committee.slice(6, 9).map((project, index) => (
-                            <Cards
-                              key={index}
-                              {...project}
-                              onClick={() => {
-                                // Handle click action here, such as opening a modal or navigating to a new page
-                                if (isLoggedIn === "false") {
-                                  ShowToast();
-                                } else {
-                                  if (isLoggedIn === "true") {
-                                    history("/Events", {
-                                      state: { title: project.title },
-                                    });
-                                  } else {
-                                    history("/form", {
-                                      state: { title: project.title },
-                                    });
-                                  }
-                                }}}
-                            />
-                          ))}
-                        </Row>
+                      <Tab.Pane eventKey="section">
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Cumque quam, quod neque provident velit, rem
+                          explicabo excepturi id illo molestiae blanditiis,
+                          eligendi dicta officiis asperiores delectus quasi
+                          inventore debitis quo.
+                        </p>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        {/* <Row style={{ marginLeft: "130px" }}>
-                          {committee.slice(6, 9).map((project, index) => (
-                            <Cards
-                              key={index}
-                              {...project}
-                              onClick={() => handleCardClick(project)}
-                            />
-                          ))}
-                        </Row> */}
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Cumque quam, quod neque provident velit, rem
+                          explicabo excepturi id illo molestiae blanditiis,
+                          eligendi dicta officiis asperiores delectus quasi
+                          inventore debitis quo.
+                        </p>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>

@@ -34,7 +34,7 @@ export const EventCard = () => {
             style={{
               display: "flex",
               margin: "auto",
-              marginRight: "85px",
+              marginRight: "94px",
               fontSize: 50,
             }}
           />

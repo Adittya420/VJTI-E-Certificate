@@ -11,6 +11,7 @@ import { NavBar } from "./components/NavBar";
 import Authentication from "./components/Login";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
+import { About } from "./components/About";
 import Register from "./components/Regsiter";
 
 import Form from "./components/Form";
@@ -46,6 +47,7 @@ function App() {
           <Route exact path="/login" element={<Authentication />} />
           {/* <Route path="/skills" element={<Skills />} /> */}
           <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About/>} />
         </Routes>
       </Router>
     </>
