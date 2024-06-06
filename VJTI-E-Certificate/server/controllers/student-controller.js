@@ -20,7 +20,7 @@ userRouter.get('/get-committee-cards', async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
-});
+}); 
 
 // API endpoint for adding committee cards to database
 userRouter.post('/add-committee-card', async (req,res) => {
@@ -57,7 +57,7 @@ userRouter.delete('/committees/:committeeTitle', async (req, res) => {
   }
 });
 
-// API Registration endpoint
+// API Registration endpoint  //DONE
 userRouter.post('/register', async (req, res) => {
     try {
       // Check if user already exists with the provided email
@@ -86,7 +86,7 @@ userRouter.post('/register', async (req, res) => {
     }
 });
 
-// API for login user
+// API for login user    //DONE
 userRouter.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
