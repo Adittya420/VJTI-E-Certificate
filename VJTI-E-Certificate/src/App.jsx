@@ -17,8 +17,10 @@ import Form from "./components/Form";
 import AddCommittee from "./components/AddCommittee";
 import { USER } from "./components/Constants";
 import { Footer } from "./components/Footer";
+
 import Events from "./components/Events";
 import AddCertificate from "./components/AddCertificate";
+
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
                 {<Banner />}
                 {<Projects />}
                 <Outlet />
+
                 {/* <Footer /> */}
               </>
             }

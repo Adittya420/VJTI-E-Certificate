@@ -90,6 +90,7 @@ function AddCertificate() {
             Note: Fields in the excel sheet should not be empty
           </div>
           <div id="submit-button-cvr">
+
             <button
               id="submit-button"
               type="button"
