@@ -1,180 +1,69 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { Cards } from "./Cards";
-import { Toast } from "./Toast.jsx";
 import React from "react";
-import projImg1 from "../Images/enthu.png";
-import projImg2 from "../Images/Rangwardhan.png";
-import projImg3 from "../Images/digital.png";
-import projImg4 from "../Images/ecell.png";
-import projImg5 from "../Images/pratibimb.png";
-import projImg6 from "../Images/dla.png";
-import projImg7 from "../Images/techno.png";
-import colorSharp2 from "../Images/concert.jpg";
-import Form from "./Form";
-import "animate.css";
-import TrackVisibility from "react-on-screen";
-import { useNavigate } from "react-router";
-import { USER, isLoggedIn } from "./Constants.jsx";
-import { useToast } from "@chakra-ui/toast";
-
+import "../css/About.css";
+import { Card, Row, Col } from "react-bootstrap";
+import image from '../Images/about.png'
+import { Footer } from "./Footer";
 export const About = () => {
-  const history = useNavigate();
-  const toast = useToast();
-  // const Navigate = () => {
-  //   history.push("/Form"); // Replace '/Form' with the actual path to your Form component
-  // };
-
-  // fetch comittee data from the database
-  const getCommitteeData = async () => {
-    let response = await fetch("http://localhost:3000/get-committee-cards");
-    return await response.json();
-  };
-
-  const [committee, setData] = React.useState([]);
-
-  function ShowToast() {
-    return toast({
-      title: "You need to login first",
-      // description: "We will get back to you soon.",
-      status: "info",
-      duration: 5000,
-      isClosable: true,
-    });
-  }
-
-  React.useEffect(() => {
-    getCommitteeData().then((committee) => {
-      setData(committee);
-    });
-  }, []);
-
-  // const committee = [
-  //   {
-  //     title: "Enthusia",
-  //     description: "Design & Development",
-  //     imgUrl: projImg1,
-  //   },
-  //   {
-  //     title: "Rangwardhan",
-  //     description: "Design & Development",
-  //     imgUrl: projImg2,
-  //   },
-  //   {
-  //     title: "Digital VJTI",
-  //     description: "Design & Development",
-  //     imgUrl: projImg3,
-  //   },
-  //   {
-  //     title: "Pratibimb",
-  //     description: "Design & Development",
-  //     imgUrl: projImg5,
-  //   },
-  //   {
-  //     title: "ECell",
-  //     description: "Design & Development",
-  //     imgUrl: projImg4,
-  //   },
-
-  //   {
-  //     title: "Technovanza",
-  //     description: "Design & Development",
-  //     imgUrl: projImg7,
-  //   },
-  // ];
-
   return (
-    <section className="project" id="projects">
-      <Container>
+    <>
+      <div className="company" style={{ marginTop: '100px' }}>
+        <div className="img">
+          <img src={image} alt="" />
+        </div>
+        <div className="company-info">
+          <span>Welcome to  <span className="our">VJTI E Certificate!</span></span>
+          <p>
+            <b></b> 
+
+At VJTI E Certificate, we are dedicated to providing students with a seamless and efficient way to obtain their certificates for various clubs and events within our esteemed institution.
+<br/>
+<br/>
+<br/>
+<b>Our Mission</b>
+<br/>
+
+Our mission is to simplify the certificate acquisition process for students, ensuring that their accomplishments and participation in college clubs and events are duly recognized and documented. We strive to be a one-stop platform that facilitates the retrieval of certificates, allowing students to focus more on their academic and extracurricular pursuits.
+<br/>
+<br/>
+<br/>
+          </p>
+        </div>
+      </div>
+
+      <div className="team"><span>OUR TEAM</span></div>
+
+      <div className="container">
+        {/* Individual Card Components */}
         <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div className={"animate__animated animate__fadeIn"}>
-                  <h2>Committees</h2>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </p>
-                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                    <Nav
-                      variant="pills"
-                      className="nav-pills mb-5 justify-content-center align-items-center"
-                      id="pills-tab"
-                    >
-                      <Nav.Item>
-                        <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                    <Tab.Content
-                      id="slideInUp"
-                      className={
-                        isVisible ? "animate__animated animate__slideInUp" : ""
-                      }
-                    >
-                      <Tab.Pane eventKey="first">
-                        <Row style={{ marginLeft: "95px" }}>
-                          {committee.map((project, index) => {
-                            return (
-                              <Cards
-                                key={index}
-                                {...project}
-                                onClick={() => {
-                                  // Handle click action here, such as opening a modal or navigating to a new page
-                                  if (isLoggedIn === "false") {
-                                    ShowToast();
-                                  } else {
-                                    if (isLoggedIn === "true") {
-                                      history("/Events", {
-                                        state: { title: project.title },
-                                      });
-                                    } else {
-                                      history("/form", {
-                                        state: { title: project.title },
-                                      });
-                                    }
-                                  }
-                                }}
-                              />
-                            );
-                          })}
-                        </Row>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="section">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Cumque quam, quod neque provident velit, rem
-                          explicabo excepturi id illo molestiae blanditiis,
-                          eligendi dicta officiis asperiores delectus quasi
-                          inventore debitis quo.
-                        </p>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="third">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Cumque quam, quod neque provident velit, rem
-                          explicabo excepturi id illo molestiae blanditiis,
-                          eligendi dicta officiis asperiores delectus quasi
-                          inventore debitis quo.
-                        </p>
-                      </Tab.Pane>
-                    </Tab.Content>
-                  </Tab.Container>
-                </div>
-              )}
-            </TrackVisibility>
+          {/* First Row */}
+          <Col md={4}>
+            <Card />
+          </Col>
+          <Col md={4}>
+            <Card />
+          </Col>
+          <Col md={4}>
+            <Card />
           </Col>
         </Row>
-      </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
-    </section>
+        {/* <Row>
+        
+          <Col md={4}>
+            <Card />
+          </Col>
+          <Col md={4}>
+            <Card />
+          </Col>
+          <Col md={4}>
+            <Card />
+          </Col>
+        </Row> */}
+        {/* Add more rows as needed */}
+        {/* End of Individual Card Component */}
+      </div>
+      <Footer/>
+    </>
   );
 };
+
+export default About;

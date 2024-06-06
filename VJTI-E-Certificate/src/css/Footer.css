@@ -1,0 +1,41 @@
+/* Footer Styles */
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+  }
+  
+  .footer h3 {
+    color: #333;
+  }
+  
+  .footer p {
+    color: #666;
+  }
+  
+  .contact-info li {
+    margin-bottom: 10px;
+  }
+  
+  .contact-info li i {
+    margin-right: 10px;
+    color: #007bff; /* Change color as needed */
+  }
+  
+  .social-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .social-icons li {
+    margin-right: 10px;
+  }
+  
+  .social-icons li a {
+    color: #007bff; /* Change color as needed */
+    font-size: 20px;
+  }
+  
+  /* You may need to import Font Awesome CSS for the icons */
+  

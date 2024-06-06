@@ -16,6 +16,7 @@ import TrackVisibility from "react-on-screen";
 import { useNavigate } from "react-router";
 import { USER, isLoggedIn } from "./Constants.jsx";
 import { useToast } from "@chakra-ui/toast";
+import { Footer } from "./Footer.jsx";
 
 export const Projects = () => {
   const history = useNavigate();
@@ -83,6 +84,7 @@ export const Projects = () => {
   // ];
 
   return (
+    <>
     <section className="project" id="projects">
       <Container>
         <Row>
@@ -186,5 +188,7 @@ export const Projects = () => {
       </Container>
       <img className="background-image-right" src={colorSharp2}></img>
     </section>
+    <Footer/>
+    </>
   );
 };
