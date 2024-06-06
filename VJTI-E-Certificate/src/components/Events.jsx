@@ -46,6 +46,7 @@ const Events = () => {
             key={index}
             style={{
               marginRight: index % cardsPerRow === cardsPerRow - 1 ? 0 : "20px",
+              
             }}
           >
             {card}

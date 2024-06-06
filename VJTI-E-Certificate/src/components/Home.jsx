@@ -6,6 +6,7 @@ import "animate.css";
 import '../css/Home.css'
 
 import TrackVisibility from "react-on-screen";
+import { Footer } from "./Footer";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -54,6 +55,7 @@ export const Banner = () => {
   };
 
   return (
+    <>
     <section className="banner" id="home">
       <Container>
         <Row className="aligh-items-center">
@@ -100,5 +102,7 @@ export const Banner = () => {
         </Row>
       </Container>
     </section>
+      
+    </>
   );
 };

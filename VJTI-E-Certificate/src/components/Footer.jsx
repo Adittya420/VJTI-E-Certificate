@@ -1,35 +1,65 @@
-import { Container, Row, Col } from "react-bootstrap";
-import { MailchimpForm } from "./MailchimpForm";
-import logo from "../assets/img/logo.svg";
-import navIcon1 from "../assets/img/nav-icon1.svg";
-import navIcon2 from "../assets/img/nav-icon2.svg";
-import navIcon3 from "../assets/img/nav-icon3.svg";
-
+import {
+  Box,
+  Stack,
+  HStack,
+  VStack,
+  Link,
+  Divider,
+  Image,
+  Text,
+  Button,
+} from '@chakra-ui/react';
+// Here we have used react-icons package for the icons
+import { FaGithub } from 'react-icons/fa';
+import { BsDiscord } from 'react-icons/bs';
+import image from '../Images/logo.png'
 export const Footer = () => {
   return (
-    <footer className="footer">
-      <Container>
-        <Row className="align-items-center">
-          <MailchimpForm />
-          <Col size={12} sm={6}>
-            <img src={logo} alt="Logo" />
-          </Col>
-          <Col size={12} sm={6} className="text-center text-sm-end">
-            <div className="social-icon">
-              <a href="#">
-                <img src={navIcon1} alt="Icon" />
-              </a>
-              <a href="#">
-                <img src={navIcon2} alt="Icon" />
-              </a>
-              <a href="#">
-                <img src={navIcon3} alt="Icon" />
-              </a>
-            </div>
-            <p>Copyright 2022. All Rights Reserved</p>
-          </Col>
-        </Row>
-      </Container>
-    </footer>
+    <Box p={{ base: 5, md: 8 }} maxW="5xl" marginInline="auto">
+      <Stack
+        spacing={{ base: 8, md: 0 }}
+        justifyContent="space-between"
+        direction={{ base: 'column', md: 'row' }}
+      >
+        <Box maxW="300px">
+          <Link href="https://templateskart.com" isExternal>
+            <Image w="200px" src={image} alt="TemplatesKart" />
+          </Link>
+          <Text mt={2} color="gray.500" fontSize="md">
+            We rule here...
+          </Text>
+        </Box>
+        <HStack
+          spacing={4}
+          d={{ base: 'none', sm: 'flex' }}
+          justifyContent={{ sm: 'space-between', md: 'normal' }}
+        >
+          <VStack spacing={4} alignItems="flex-start">
+            <Text fontSize="md" fontWeight="bold">
+              About
+            </Text>
+           
+          </VStack>
+          <VStack spacing={4} alignItems="flex-start">
+            <Text fontSize="md" fontWeight="bold">
+              Community
+            </Text>
+            
+          </VStack>
+          <VStack spacing={4} alignItems="flex-start">
+            <Text fontSize="md" fontWeight="bold">
+              Project
+            </Text>
+           
+          </VStack>
+        </HStack>
+      </Stack>
+
+      <Divider my={4} />
+
+      
+    </Box>
   );
 };
+
+
