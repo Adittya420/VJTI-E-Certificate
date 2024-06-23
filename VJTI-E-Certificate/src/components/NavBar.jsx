@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../assets/img/logo.svg";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { USER, isLoggedIn } from "./Constants";
+import { AuthContext } from './AuthContext';
+
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const { isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
     const onScroll = () => {

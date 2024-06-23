@@ -1,22 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../css/Login.css";
 import "../css/Register.css";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
+import { setRole } from './Constants';
 
 function Authentication() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoginForm, setIsLoginForm] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleToggleForm = () => {
-    setIsLoggedIn(!isLoggedIn);
+    setIsLoginForm(!isLoginForm); 
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      if (isLoggedIn) {
+      if (isLoginForm) {
         // Login submission
         const email = e.target.elements.email.value;
         const password = e.target.elements.password.value;
@@ -32,8 +35,12 @@ function Authentication() {
           alert('Login successful');
           // Store the token or user data in local storage or state
           localStorage.setItem('access_token', response.data.access_token);
+
+          // Set the role based on the response
+          setRole(response.data.role);
+          
+          setIsLoggedIn(true);
           navigate('/');
-          // Redirect to the authenticated page or update the UI
         } else {
           alert('Login failed. Please check your credentials.');
         }
@@ -56,7 +63,6 @@ function Authentication() {
         if (response.status === 201) {
           alert('User registered successfully');
           navigate('/');
-          // Reset the form or perform any other necessary actions
         } else {
           alert('Registration failed. Please try again.');
         }
@@ -77,7 +83,7 @@ function Authentication() {
             </div>
           </div>
           <div id="input-area">
-            {isLoggedIn ? (
+            {isLoginForm ? (
               <>
                 <div className="form-inp">
                   <input placeholder="Email Address" type="text" name="email" />
@@ -118,7 +124,7 @@ function Authentication() {
           </div>
           <div id="bar"></div>
           <div id="toggle-form">
-            {isLoggedIn ? (
+            {isLoginForm ? (
               <p className="downcss">
                 Don't have an account?&nbsp;&nbsp;&nbsp;&nbsp;{" "}
                 <span onClick={handleToggleForm}>Register</span>

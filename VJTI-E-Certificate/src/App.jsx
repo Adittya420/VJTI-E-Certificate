@@ -21,11 +21,11 @@ import { Footer } from "./components/Footer";
 
 import Events from "./components/Events";
 import AddCertificate from "./components/AddCertificate";
-
+import { AuthProvider } from './components/AuthContext';
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Router>
         {<NavBar />}
         <Routes>
@@ -54,7 +54,7 @@ function App() {
       
         </Routes>
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 

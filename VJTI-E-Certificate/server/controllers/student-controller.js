@@ -74,7 +74,8 @@ userRouter.post('/register', async (req, res) => {
         name,
         email,
         id,
-        password: hashedPassword
+        password: hashedPassword,
+        role: 'user'
       });
   
       // Save the user to the database
@@ -103,7 +104,7 @@ userRouter.post('/login', async (req, res) => {
     res
       .cookie('access_token', token, { httpOnly: true })
       .status(200)
-      .json(rest);
+      .json({ ...rest, role: validUser.role, access_token: token  });
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
